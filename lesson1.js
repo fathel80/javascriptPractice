@@ -97,5 +97,63 @@ function Student(name, grade) {
 student.prototype.sayName = function() {
   console.log(this.name)
 }
+Student.prototype.goToProm = function() {
+  console.log('eh.. go to prom?')
+}
 
+//prototype
+
+//reccomended method for prototypal Inheritance
+function Student() {
+
+}
+student.prototype.sayName = function() {
+  console.log(this.name)
+}
+function EightGrader(name) {
+  this.name = name
+  this.grade = 8
+}
+
+EightGrader.prototype = Object.create(Student.Prototype)
+
+const carl = new EightGrader("carl")
+carl.sayName() // console.logs "carl"
+carl.grade // 8
+
+EightGrader.prototype = Student.Prototype
+
+function Student() {
+
+}
+
+Student.prototype.sayName = function() {
+  console.log(this.name)
+}
+
+function EightGrader(name) {
+  this.name = name
+  this.grade = 8
+}
+
+// don't do this!!
+
+//EighthGrader.prototype = Student.prototype
+
+//function NinthGrader(name) {
+ // this.name = name
+  //this.grade = 9
+//}
+
+// noooo! not again!
+NinthGrader.prototype = Student.prototype
+
+NinthGrader.prototype.sayName = function() {
+  console.log("HAHAHAHAHAHAHA")
+}
+
+const carl = new EightGrader("carl")
+carl.sayName() //uh oh! this logs "HAHAHAHAHA" because we edited the sayName function
+
+//If we had used Object.create in this example, then we could safely edit the NinthGrader.prototype.sayName function without changing the function for EighthGrader as well.
 
