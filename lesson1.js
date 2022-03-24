@@ -152,7 +152,7 @@ NinthGrader.prototype.sayName = function() {
   console.log("HAHAHAHAHAHAHA")
 }
 
-const carl = new EightGrader("carl")
+//const carl = new EightGrader("carl")
 carl.sayName() //uh oh! this logs "HAHAHAHAHA" because we edited the sayName function
 
 //If we had used Object.create in this example, then we could safely edit the NinthGrader.prototype.sayName function without changing the function for EighthGrader as well.
